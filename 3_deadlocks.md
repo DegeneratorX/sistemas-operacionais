@@ -69,19 +69,19 @@ Aqui ocorre deadlock. P1 solicita r1, P2 solicita r2, P1 solicita r1 porém bloq
 
 - **Condição de exclusão mútua**: eles não podem acessar os recursos ao mesmo tempo. Um sistema sem essa condição é um sistema sem deadlock.
 - **Condição de posse e espera**: se tem um processo e esse processo retém um recurso pq esse recurso precisa ser retido pra garantir a exclusão mutua, e esse recurso é capaz de solicitar novos recursos, isso pode gerar a condição de posse e espera.
-- **Condição de não-preempção:** se os recursos não podem ser trocados, não tem deadlock.
+- **Condição de não-preempção:** se os recursos não podem ser trocados (ou seja, são não-preemptivos), pode ter deadlock.
 - **Condição de espera circular.**
 
 ## Tratamento de deadlocks
 
-### Ignorar o deadlock
+### Ignorar o deadlock (Ex: algoritmo do avestruz)
 
-Ele finge que o problema não existe. UNIX e Windows seguem essa abordagem. É razoável se os deadlocks são raros e o custo de prevenir é alto. Ex: algoritmo do avestruz.
+Ele finge que o problema não existe. UNIX e Windows seguem essa abordagem. É razoável se os deadlocks são raros e o custo de prevenir é alto.
 
 ### Detecção e recuperação
 
 - Recuperação através de preempção
-    - Retirar um recurso de algum outro processo. DEpende da natureza do recurso.
+    - Retirar um recurso de algum outro processo. Depende da natureza do recurso.
 
 - Recuperação através da eliminação de processos
 
@@ -106,3 +106,5 @@ Negação de uma das quatro condições do tópico acima.
 Onde [A] e [C] são recursos que estão sendo utilizados pelos processos (D) e (B), respectivamente, e (D) e (B) são processos que estão requisitando os recursos [C] e [A], respectivamente.
 
 Uma forma de também verificar se tem deadlock sem utilizar grafos é verificar o uso baixo de CPU em um suposto laço infinito de espera. Se a espera da resolução não termina e o uso da CPU está baixo, significa que muito provavelmente está tudo bloqueado, ou seja, os processos parados e esperando, pois nada está sendo processado.
+
+## Prevenção de Deadlocks
