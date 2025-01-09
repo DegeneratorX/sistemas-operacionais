@@ -31,3 +31,8 @@
 *.out
 *.app
 *.o
+
+# Others
+.idea/
+cmake-build-debug/
+.vscode/
